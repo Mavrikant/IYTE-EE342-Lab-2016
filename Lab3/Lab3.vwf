@@ -1,0 +1,271 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+
+/*
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+
+HEADER
+{
+	VERSION = 1;
+	TIME_UNIT = ns;
+	DATA_OFFSET = 0.0;
+	DATA_DURATION = 100000000.0;
+	SIMULATION_TIME = 100000000.0;
+	GRID_PHASE = 0.0;
+	GRID_PERIOD = 10.0;
+	GRID_DUTY_CYCLE = 50;
+}
+
+SIGNAL("Clk")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("In")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("Out1")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("Out2")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("debouncer2:deb2|Count")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 2;
+	LSB_INDEX = 0;
+	DIRECTION = BURIED;
+	PARENT = "";
+}
+
+SIGNAL("debouncer2:deb2|Count[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "debouncer2:deb2|Count";
+}
+
+SIGNAL("debouncer2:deb2|Count[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "debouncer2:deb2|Count";
+}
+
+TRANSITION_LIST("Clk")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 100;
+			LEVEL 0 FOR 500000.0;
+			LEVEL 1 FOR 500000.0;
+		}
+	}
+}
+
+TRANSITION_LIST("In")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 4259840.0;
+		LEVEL 1 FOR 7536640.0;
+		LEVEL 0 FOR 4587520.0;
+		LEVEL 1 FOR 327680.0;
+		LEVEL 0 FOR 83288320.0;
+	}
+}
+
+TRANSITION_LIST("Out1")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 8500006.222;
+		LEVEL 1 FOR 8000000.0;
+		LEVEL 0 FOR 83499993.778;
+	}
+}
+
+TRANSITION_LIST("Out2")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 4500006.222;
+		LEVEL 1 FOR 8000000.0;
+		LEVEL 0 FOR 4000000.0;
+		LEVEL 1 FOR 4000000.0;
+		LEVEL 0 FOR 79499993.778;
+	}
+}
+
+TRANSITION_LIST("debouncer2:deb2|Count[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1500002.954;
+		LEVEL 1 FOR 3000000.0;
+		LEVEL 0 FOR 2000000.0;
+		LEVEL 1 FOR 6000000.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 2000000.0;
+			LEVEL 1 FOR 2000000.0;
+		}
+		LEVEL 0 FOR 2000000.0;
+		LEVEL 1 FOR 77499997.046;
+	}
+}
+
+TRANSITION_LIST("debouncer2:deb2|Count[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 500002.954;
+		LEVEL 1 FOR 1000000.0;
+		LEVEL 0 FOR 1000000.0;
+		LEVEL 1 FOR 2000000.0;
+		LEVEL 0 FOR 1000000.0;
+		LEVEL 1 FOR 1000000.0;
+		LEVEL 0 FOR 1000000.0;
+		LEVEL 1 FOR 5000000.0;
+		NODE
+		{
+			REPEAT = 5;
+			LEVEL 0 FOR 1000000.0;
+			LEVEL 1 FOR 1000000.0;
+		}
+		LEVEL 0 FOR 1000000.0;
+		LEVEL 1 FOR 76499997.046;
+	}
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Clk";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 0;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "In";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Out1";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 2;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "Out2";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 3;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "debouncer2:deb2|Count";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 4;
+	TREE_LEVEL = 0;
+	CHILDREN = 5, 6;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "debouncer2:deb2|Count[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 1;
+	PARENT = 4;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "debouncer2:deb2|Count[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 1;
+	PARENT = 4;
+}
+
+TIME_BAR
+{
+	TIME = 14950;
+	MASTER = TRUE;
+}
+;
